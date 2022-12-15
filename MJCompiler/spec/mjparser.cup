@@ -1,0 +1,508 @@
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+
+	boolean errorDetected = false;
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+		errorDetected = true;
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+
+
+:}
+
+init with {:
+	errorDetected = false;
+:}
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+/* terminali za deklarisanje */
+terminal PROG;
+terminal CONST;
+
+/* sistemske funkcije */
+terminal PRINT;
+terminal READ;
+
+/* znakovi za odvajanje */
+terminal COMMA;
+terminal SEMI;
+
+/* definicija promenljive */
+terminal NEW;
+
+/* povratak iz funkcije */
+terminal RETURN;
+
+/* tip */
+terminal VOID;
+
+/* klase i labele - u daljim fazama nisu obradjene! */
+terminal CLASS;
+terminal EXTENDS;
+terminal DOT;
+terminal COLON;
+
+/* petlje i grananja */
+terminal DO;
+terminal WHILE;
+terminal BREAK;
+terminal CONTINUE;
+terminal IF;
+terminal ELSE;
+
+/* zagrade */
+terminal LBRACE;
+terminal RBRACE;
+terminal LBRACKET;
+terminal RBRACKET;
+terminal LPAREN;
+terminal RPAREN;
+
+/* operatori poredjenja */
+terminal EQUAL;
+terminal SAME;
+terminal DIFFER;
+terminal GRE;
+terminal GRE_EQ;
+terminal LESS;
+terminal LESS_EQ;
+
+/* logicki operatori */
+terminal AND;
+terminal OR;
+
+/* aritmeticki operatori */
+terminal PLUS;
+terminal MIN;
+terminal MUL;
+terminal DIV;
+terminal MOD;
+terminal INC;
+terminal DEC; 
+terminal NULLISH;
+
+/* imena i vrednosti promenljivih */
+terminal Character CHARACTER;
+terminal int NUMBER;
+terminal Boolean BOOLEAN;
+terminal String IDENT;
+
+nonterminal DeclList; /* lista svih deklaracija unutar programskog opsega vazenja */
+nonterminal ConstDeclList; /* lista deklaracija konstanti */
+nonterminal MethodDeclList; /* lista deklaracija funkcija programa */
+nonterminal DeclSingle; /* jedna konkretna deklaracija */
+nonterminal ConstVal; /* vrednost konstante */
+nonterminal NumConst; /* integer vrednost */
+nonterminal BoolConst; /* boolean vrednost */
+nonterminal CharConst; /* char vrednost */
+nonterminal VarDeclList; /* lista deklaracija globalnih promenljivih */
+nonterminal OptArgs; /* lista opcionih argumenata funkcije */
+nonterminal OptArg; /* opcioni argument funkcije */
+nonterminal MethodArgs; /* lista argumenata funkcije */
+
+/* klase dalje nisu radjene!!! */
+nonterminal HasExtends;
+nonterminal ClassBody;
+nonterminal ConstructorBody;
+nonterminal MethodBody;
+nonterminal Label;
+
+
+nonterminal MultipleVarDecl; /* lista deklaracija lokalnih promenljivih unutar metode */
+nonterminal FunctionEnd; /* telo definicije metode */
+nonterminal StatementList;
+nonterminal FormPars; /* lista obaveznih argumenata funkcije */
+nonterminal FormalParamDecl; /* obavezan argument funkcije */
+nonterminal DoWhileStart; /* pomocni neterminal za obradu do-while petlje */
+nonterminal DoWhileEnd; /* pomocni neterminal za obradu do-while petlje */
+nonterminal Statement;
+nonterminal SingleStatement;
+nonterminal Statements;
+nonterminal DesignatorStatement;
+nonterminal Unmatched;
+nonterminal Matched;
+nonterminal Else; /* pomocni neterminal za obradu grananja */
+nonterminal Assignop; /* operator dodele */
+nonterminal WhileStart; /* pomocni neterminal za obradu do-while petlje */
+nonterminal IfStart; /* pomocni neterminal za obradu grananja */
+nonterminal IfTerminal; /* pomocni neterminal za obradu grananja */
+nonterminal Relop; /* operacije poredjenja */
+nonterminal Addop; /* operavije +, - */
+nonterminal Mulop; /* operacije *, /, % */
+nonterminal Designators;
+nonterminal Return; /* povratak iz funkcije */
+nonterminal DesignatorElem; 
+nonterminal Nullish; /* operacija ?? */
+nonterminal ReadStart; /* okrizujuc za terminal READ */
+
+
+/* neterminali koji unutar definicije svoje klase sadrze i polje za prihvatanje objekta tipa Obj */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName; /* ime programa */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Program; /* celokupno telo programa */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj VarName; /* ime promenljive */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj VarDeclSingle; /* na osnovu neterminala saznajemo da li je promenljiva niz ili ne */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ArrayName; /* ime niza */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj VarDecl; /* deklaracija promenljivih istog tipa */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstDecl; /* deklaracija konstanti istog tipa */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclSingle; /* ime kontsnte */
+
+/* klase, insu obradjivane nakon ovog dela */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstructorDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstructorName;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl; /* ime i telo metode */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodName; /* ime metode */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator; /* promenljiva ili element niza */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Factor; /* operand */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Expr; /* SingleExpr ili vise njih povezanih operacijom NULLISH = aritmeticki izraz */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Factors; /* operandi povezani operacijom mnozenja ili jedan operand */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Term; /* isto sto i Factors */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj TermExpr; /* Term ili vise Term-ova povezanih operacijom sabiranja */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj SingleExpr; /* isto sto i TermExpr */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj CondTerm; /* CondFact ili vise njih povezanih operacijom AND */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj CondFact; /* aritmeticki izraz ili 2 povezana operacijom poredjenja  */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Condition; /* CondTerm ili vise njih povezanih operacijom OR */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj DesignatorName; /* ime promenljive */
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ActPars; /* lista stvernih argumenata kod poziva funkcije */
+  
+/* neterminali koji unutar definicije svoje klase sadrze i polje za prihvatanje objekta tipa Struct */
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type; /* ime tipa */
+
+
+
+Program ::= (Program) ProgName:p DeclList LBRACE MethodDeclList RBRACE;
+
+ProgName ::= (ProgName) PROG IDENT:progName;
+
+DeclList ::= (Declarations) DeclList DeclSingle
+			 |
+			 (NonDeclarations) /* epsilon */
+			 ;
+
+DeclSingle ::= (ConstDeclarations) ConstDecl:constant
+		 	   |
+		 	   (VarDeclarations) VarDecl:variable
+		 	   |
+		 	   (ClassDeclarations) ClassDecl:classDec				 
+		 	   ;
+
+ConstDecl ::= (ConstDeclaration) CONST Type:constType ConstDeclSingle ConstDeclList SEMI;
+
+ConstDeclList ::= (Constants)ConstDeclList COMMA ConstDeclSingle
+				  |
+				  (NonConstants)/* epsilon */
+				  ;
+
+ConstDeclSingle ::= (ConstDeclSingle) IDENT:constName EQUAL ConstVal:constVal;
+
+ConstVal ::= (NumConstant) NumConst:numConst
+			  |
+			  (CharConstant) CharConst:charConst
+			  |
+			  (BoolConstant) BoolConst:boolConst
+		      ;
+
+VarDecl ::= (VarDeclaration) Type:varType VarDeclSingle VarDeclList SEMI;
+
+VarDeclList ::= (Variables) VarDeclList COMMA VarDeclSingle
+			    |
+				(NonVariables)/* epsilon */
+				;
+
+VarDeclSingle ::= (SingleArray)  ArrayName LBRACKET RBRACKET
+				  |
+			  	  (SingleVariable) VarName 
+			  	  ;
+				
+ArrayName ::= (ArrayName) IDENT:arrayName;
+
+VarName ::= (VarName) IDENT:variableName;
+
+ClassDecl ::= (ClassDeclaration) ClassName:c LBRACE MultipleVarDecl ClassBody RBRACE;
+
+ClassName ::= (ClassName) CLASS IDENT:className HasExtends:h;
+
+HasExtends ::= (ExtendsMember) EXTENDS Type:parentClass
+			   |
+			   (NonExtendsMember)/* epsilon */
+			   ;
+
+MultipleVarDecl ::= (MultipleVariables) MultipleVarDecl VarDecl
+					|
+					(NonMultipleVariables) /* epsilon */
+					;
+
+ClassBody ::= (ConstructorClassBody) LBRACE ConstructorBody RBRACE
+			  |
+			  (NonConstructorClassBody) LBRACE MethodBody RBRACE
+			  |
+			  (EmptyClassBody) /* epsilon */
+			  ;
+			  
+MethodBody ::= (Methods) MethodDecl MethodDeclList;
+			  
+ConstructorBody ::= (ConstructorMethods) ConstructorDecl MethodDecl MethodDeclList
+					|
+					(JustConstructor) ConstructorDecl
+					;
+
+ConstructorDecl ::= (ConstructorDeclaration) ConstructorName:c LPAREN RPAREN FunctionEnd;
+
+ConstructorName ::= (ConstructorName) IDENT:constructorName; 
+			   
+MethodDeclList ::=  (MethodList) MethodDeclList MethodDecl
+					|
+					(NonMethodList) /* epsilon */
+					;				
+
+MethodDecl ::= (MethodDecl) MethodName:methodName LPAREN MethodArgs RPAREN FunctionEnd;
+
+MethodName ::= (TypeMethodName) Type:retType IDENT:methName
+			   |
+			   (VoidMethodName) VOID IDENT:methName
+			   ;
+					
+MethodArgs ::= (JustFormPars) FormPars
+			   |
+			   (JustOptArgs) OptArgs
+			   |
+			   (FormalOptArgs) FormPars COMMA OptArgs
+			   |
+			   (NoneArgs) /* epsilon */
+			   ;
+
+FunctionEnd ::= (FunctionEnd) MultipleVarDecl Statements;
+
+FormPars ::= (FormalParamDecls) FormPars COMMA FormalParamDecl
+			 |
+			 (SingleFormalParamDecl) FormalParamDecl
+			 ;
+
+FormalParamDecl ::= (MethodArgVariable)Type:methVarType IDENT:formalVarName 
+					|
+					(MethodArgArray)Type:methArrType IDENT:formalArrName LBRACKET RBRACKET
+					;
+					
+OptArgs ::= (OptArgsList) OptArgs COMMA OptArg
+			|
+			(SingleOptArg) OptArg
+			;
+
+OptArg ::= (OptArg) Type:optArgType IDENT:optArgName EQUAL ConstVal:constVal; 		  	
+
+Type ::= (Type) IDENT:typeName;
+			  
+Statements ::= (MultipleStatements) LBRACE StatementList RBRACE;
+
+StatementList ::= (ListStatements) StatementList Statement
+				  |
+				  (NonStatements) /* epsilon */
+				  ;
+
+Statement ::= (LabelSingleStatement) Label COLON SingleStatement
+			  |
+			  (NonLabeledSingleStatement) SingleStatement
+			  ;
+				  
+SingleStatement ::= (MatchedStatement) Matched
+				    | 
+				    (UnmatchedStatement) Unmatched
+				    ;
+				 
+Unmatched ::= (UnmatchedElse) IfStart Matched Else Unmatched
+			  |
+			  (UnmatchedIf) IfStart SingleStatement
+			  ;
+			  
+IfStart ::= (IfStart) IfTerminal LPAREN Condition RPAREN;
+
+IfTerminal::=(IfTerminal) IF;
+				 
+Matched::=  (DesignatorStmnt) DesignatorStatement SEMI
+			|
+			(MatchedElse) IfStart Matched Else Matched
+			|
+			(DoWhileStatement) DO DoWhileStart Statement WHILE WhileStart LPAREN Condition RPAREN DoWhileEnd SEMI
+			|
+			(BreakStatement) BREAK SEMI
+			|
+			(ContinueStatement) CONTINUE SEMI
+			|
+			(ReturnEmptyStatement) Return SEMI
+			|
+			(ReturnExprStetement) Return Expr:retExpr SEMI
+			|
+			(NoNumPrintStatement) PRINT LPAREN Expr:printExpr RPAREN SEMI
+			|
+			(NumPrintStatement) PRINT LPAREN Expr:printExpr COMMA NUMBER:printNum RPAREN SEMI
+			|
+			(ReadStatement) ReadStart LPAREN Designator RPAREN SEMI
+			|
+			(BracedStmnt) Statements
+			;
+			
+DoWhileStart ::= (DoWhileStart) /* epsilon */;
+DoWhileEnd ::= (DoWhileEnd) /* epsilon */;
+WhileStart ::= (WhileStart) /* epsilon */;
+ReadStart ::= (ReadStart) READ;
+			
+Return ::= (Return) RETURN;
+
+Else ::= (ElseDeclaration) ELSE;
+	
+DesignatorStatement ::= (DesignatorAssign) Designator:designator Assignop Expr:expr
+						|
+						(DesignatorNoPars) Designator:designator LPAREN RPAREN
+						|
+						(DesignatorPars) Designator:designator LPAREN ActPars RPAREN
+						|
+						(DesignatorIncrement) Designator:designator INC
+						|
+						(DesignatorDecrement) Designator:designator DEC
+						;
+		   
+Designator ::= (Designator) DesignatorName Designators:designators;
+
+DesignatorName ::= (DesignatorName) IDENT:designatorName;
+
+Designators ::= (DesignatorList) Designators:list DesignatorElem:designatorElem
+				|
+				(NonDesignators) /* epsilon */
+				;
+
+DesignatorElem ::= (IdentDesignatorElem) DOT IDENT:designatorElemName
+				   |
+				   (ExprDesignatorElem) LBRACKET Expr:designatorExpr RBRACKET
+				   ;
+						
+ActPars ::= (ActualParameters) ActPars COMMA Expr:expr
+			  |
+			  (ActualParameter) Expr:expr
+			  ;
+
+Condition ::= (ConditionTerms) Condition OR CondTerm
+			  |
+			  (ConditionTerm) CondTerm
+			  ;		
+
+CondTerm ::= (ConditionFacts) CondTerm AND CondFact
+			 |
+			 (ConditionFact) CondFact
+			 ;
+
+CondFact ::= (ExprFact) Expr
+			 |
+			 (RelopFact) Expr:first Relop Expr:second
+			 ;
+
+Expr ::= (NullishOperator) Expr Nullish SingleExpr
+		 |
+		 (SingleExpression) SingleExpr:singleExpr
+		 ;
+
+Nullish ::= (Nullish) NULLISH;
+		 
+SingleExpr ::= (SingleExpr) TermExpr:term;
+
+TermExpr ::= (SingleNegativeTerm) MIN Term
+		 	 |
+		 	 (MultipleTermExpr) TermExpr Addop Term
+		 	 |
+		 	 (SinglePositiveTerm) Term
+		 	 ;
+
+Term ::= (Term) Factors;		
+
+Factors ::= (FactorList) Factors Mulop Factor:factor
+			|
+			(SingleFactor) Factor:factor
+			;
+			
+Factor ::= (DesignatorParamsFactor) Designator:designator LPAREN ActPars RPAREN
+		   |
+		   (DesignatorNonParamsFactor) Designator:designator LPAREN RPAREN
+		   | 
+		   (DesignatorFactor) Designator:designator
+		   |
+		   (NumFactor) NumConst
+		   |
+		   (CharFactor) CharConst
+		   |
+		   (BoolFactor) BoolConst
+		   |
+		   (NewFactor) NEW Type
+		   |
+		   (NewExprFactor) NEW Type LBRACKET Expr:expr RBRACKET
+		   |
+		   (ExprFactor) LPAREN Expr:expr RPAREN
+		   ;
+
+NumConst ::= (NumConst) NUMBER:numVal;
+
+CharConst ::= (CharConst) CHARACTER:charVal;
+
+BoolConst ::= (BoolConst) BOOLEAN:boolVal;
+
+Label ::= (Label) IDENT; 
+
+Assignop ::= (Assign) EQUAL;
+
+Relop ::= (Same) SAME
+		  |
+		  (Differ) DIFFER
+		  |
+		  (Greater) GRE
+		  |
+		  (GreaterEqual) GRE_EQ
+		  |
+		  (Less) LESS
+		  |
+		  (LessEqual) LESS_EQ
+		  ;
+
+Addop ::= (Add) PLUS 
+ 		  |
+ 		  (Sub) MIN
+ 		  ;
+		
+Mulop ::= (Mul) MUL 
+ 		  |
+ 		  (Div) DIV
+ 		  |
+ 		  (Mod) MOD
+ 		  ;
+
