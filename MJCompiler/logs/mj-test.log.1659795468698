@@ -1,0 +1,151 @@
+INFO  16:17:26,568 - Compiling source file: C:\Users\sonja\OneDrive\Desktop\4. godina\Programski prevodioci 1\Sve za projekat\Sintaksna analiza\Izvorni kod\MJCompiler\test\program.mj
+INFO  16:17:26,666 - #2 program
+INFO  16:17:26,666 - #51 p
+INFO  16:17:26,666 - #3 const
+INFO  16:17:26,667 - #51 int
+INFO  16:17:26,667 - #51 size
+INFO  16:17:26,668 - #28 =
+INFO  16:17:26,668 - #49 10
+INFO  16:17:26,668 - #5 ;
+INFO  16:17:26,670 - #45 record
+INFO  16:17:26,670 - #51 Board
+INFO  16:17:26,670 - #22 {
+INFO  16:17:26,671 - #51 int
+INFO  16:17:26,671 - #51 rows
+INFO  16:17:26,672 - #4 ,
+INFO  16:17:26,674 - #51 columns
+INFO  16:17:26,674 - #5 ;
+INFO  16:17:26,674 - #23 }
+INFO  16:17:26,674 - #15 class
+INFO  16:17:26,675 - #51 Table
+INFO  16:17:26,677 - #22 {
+INFO  16:17:26,678 - #51 int
+INFO  16:17:26,679 - #51 pos
+INFO  16:17:26,679 - #24 [
+INFO  16:17:26,680 - #25 ]
+INFO  16:17:26,680 - #4 ,
+INFO  16:17:26,680 - #51 neg
+INFO  16:17:26,680 - #24 [
+INFO  16:17:26,680 - #25 ]
+INFO  16:17:26,680 - #5 ;
+INFO  16:17:26,680 - #22 {
+INFO  16:17:26,680 - #14 void
+INFO  16:17:26,680 - #51 putp
+INFO  16:17:26,680 - #26 (
+INFO  16:17:26,680 - #27 )
+INFO  16:17:26,681 - #22 {
+INFO  16:17:26,681 - #23 }
+INFO  16:17:26,682 - #23 }
+INFO  16:17:26,684 - #23 }
+INFO  16:17:26,685 - #22 {
+INFO  16:17:26,685 - #23 }
+INFO  16:17:26,687 - Program(
+ p
+  Declarations(
+    Declarations(
+      Declarations(
+        NonDeclarations(
+        ) [NonDeclarations]
+        ConstDeclarations(
+          ConstDeclaration(
+            Type(
+             int
+            ) [Type]
+            SingleConstant(
+             size
+              NumValue(
+                NumConst(
+                 10
+                ) [NumConst]
+              ) [NumValue]
+            ) [SingleConstant]
+            NonConstants(
+            ) [NonConstants]
+          ) [ConstDeclaration]
+        ) [ConstDeclarations]
+      ) [Declarations]
+      RecordDeclarations(
+        RecordDeclaration(
+         Board
+          MultipleVariables(
+            NonMultipleVariables(
+            ) [NonMultipleVariables]
+            VarDeclaration(
+              Type(
+               int
+              ) [Type]
+              SingleVariable(
+                VarName(
+                 rows
+                ) [VarName]
+              ) [SingleVariable]
+              Variables(
+                NonVariables(
+                ) [NonVariables]
+                SingleVariable(
+                  VarName(
+                   columns
+                  ) [VarName]
+                ) [SingleVariable]
+              ) [Variables]
+            ) [VarDeclaration]
+          ) [MultipleVariables]
+        ) [RecordDeclaration]
+      ) [RecordDeclarations]
+    ) [Declarations]
+    ClassDeclarations(
+      ClassDeclaration(
+       Table
+        NonExtendsMember(
+        ) [NonExtendsMember]
+        MultipleVariables(
+          NonMultipleVariables(
+          ) [NonMultipleVariables]
+          VarDeclaration(
+            Type(
+             int
+            ) [Type]
+            SingleArray(
+              ArrayName(
+               pos
+              ) [ArrayName]
+            ) [SingleArray]
+            Variables(
+              NonVariables(
+              ) [NonVariables]
+              SingleArray(
+                ArrayName(
+                 neg
+                ) [ArrayName]
+              ) [SingleArray]
+            ) [Variables]
+          ) [VarDeclaration]
+        ) [MultipleVariables]
+        NonConstructorClassBody(
+          Methods(
+            VoidMethodDecl(
+             putp
+              NonFormParam(
+              ) [NonFormParam]
+              FunctionEnd(
+                NonMultipleVariables(
+                ) [NonMultipleVariables]
+                MultipleStatements(
+                  NonStatements(
+                  ) [NonStatements]
+                ) [MultipleStatements]
+              ) [FunctionEnd]
+            ) [VoidMethodDecl]
+            NonMethodList(
+            ) [NonMethodList]
+          ) [Methods]
+        ) [NonConstructorClassBody]
+      ) [ClassDeclaration]
+    ) [ClassDeclarations]
+  ) [Declarations]
+  NonMethodList(
+  ) [NonMethodList]
+) [Program]
+INFO  16:17:26,687 - ===================================
+INFO  16:17:26,690 -  Print count calls = 0
+INFO  16:17:26,691 -  Deklarisanih promenljivih ima = 0

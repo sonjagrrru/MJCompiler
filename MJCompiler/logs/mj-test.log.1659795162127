@@ -1,0 +1,87 @@
+INFO  16:12:09,644 - Compiling source file: C:\Users\sonja\OneDrive\Desktop\4. godina\Programski prevodioci 1\Sve za projekat\Sintaksna analiza\Izvorni kod\MJCompiler\test\program.mj
+INFO  16:12:09,763 - #2 program
+INFO  16:12:09,763 - #51 p
+INFO  16:12:09,764 - #3 const
+INFO  16:12:09,765 - #51 int
+INFO  16:12:09,765 - #51 size
+INFO  16:12:09,766 - #28 =
+INFO  16:12:09,767 - #49 10
+INFO  16:12:09,767 - #5 ;
+INFO  16:12:09,769 - #15 class
+INFO  16:12:09,770 - #51 Table
+INFO  16:12:09,770 - #22 {
+INFO  16:12:09,771 - #51 int
+INFO  16:12:09,773 - #51 pos
+INFO  16:12:09,773 - #24 [
+INFO  16:12:09,774 - #25 ]
+INFO  16:12:09,775 - #4 ,
+INFO  16:12:09,776 - #51 neg
+INFO  16:12:09,776 - #24 [
+INFO  16:12:09,776 - #25 ]
+INFO  16:12:09,778 - #5 ;
+INFO  16:12:09,778 - #23 }
+INFO  16:12:09,780 - #22 {
+INFO  16:12:09,781 - #23 }
+INFO  16:12:09,784 - Program(
+ p
+  Declarations(
+    Declarations(
+      NonDeclarations(
+      ) [NonDeclarations]
+      ConstDeclarations(
+        ConstDeclaration(
+          Type(
+           int
+          ) [Type]
+          SingleConstant(
+           size
+            NumValue(
+              NumConst(
+               10
+              ) [NumConst]
+            ) [NumValue]
+          ) [SingleConstant]
+          NonConstants(
+          ) [NonConstants]
+        ) [ConstDeclaration]
+      ) [ConstDeclarations]
+    ) [Declarations]
+    ClassDeclarations(
+      ClassDeclaration(
+       Table
+        NonExtendsMember(
+        ) [NonExtendsMember]
+        MultipleVariables(
+          NonMultipleVariables(
+          ) [NonMultipleVariables]
+          VarDeclaration(
+            Type(
+             int
+            ) [Type]
+            SingleArray(
+              ArrayName(
+               pos
+              ) [ArrayName]
+            ) [SingleArray]
+            Variables(
+              NonVariables(
+              ) [NonVariables]
+              SingleArray(
+                ArrayName(
+                 neg
+                ) [ArrayName]
+              ) [SingleArray]
+            ) [Variables]
+          ) [VarDeclaration]
+        ) [MultipleVariables]
+        EmptyClassBody(
+        ) [EmptyClassBody]
+      ) [ClassDeclaration]
+    ) [ClassDeclarations]
+  ) [Declarations]
+  NonMethodList(
+  ) [NonMethodList]
+) [Program]
+INFO  16:12:09,784 - ===================================
+INFO  16:12:09,788 -  Print count calls = 0
+INFO  16:12:09,788 -  Deklarisanih promenljivih ima = 0

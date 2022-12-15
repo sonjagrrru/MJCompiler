@@ -1,0 +1,390 @@
+INFO  16:35:02,041 - Compiling source file: C:\Users\sonja\OneDrive\Desktop\4. godina\Programski prevodioci 1\Sve za projekat\Sintaksna analiza\Izvorni kod\MJCompiler\test\program.mj
+INFO  16:35:02,134 - #2 program
+INFO  16:35:02,134 - #51 p
+INFO  16:35:02,134 - #3 const
+INFO  16:35:02,135 - #51 int
+INFO  16:35:02,135 - #51 size
+INFO  16:35:02,137 - #28 =
+INFO  16:35:02,137 - #49 10
+INFO  16:35:02,137 - #5 ;
+INFO  16:35:02,139 - #45 record
+INFO  16:35:02,139 - #51 Board
+INFO  16:35:02,139 - #22 {
+INFO  16:35:02,139 - #51 int
+INFO  16:35:02,140 - #51 rows
+INFO  16:35:02,141 - #4 ,
+INFO  16:35:02,142 - #51 columns
+INFO  16:35:02,143 - #5 ;
+INFO  16:35:02,143 - #23 }
+INFO  16:35:02,144 - #15 class
+INFO  16:35:02,144 - #51 Table
+INFO  16:35:02,146 - #22 {
+INFO  16:35:02,146 - #51 int
+INFO  16:35:02,147 - #51 pos
+INFO  16:35:02,147 - #24 [
+INFO  16:35:02,148 - #25 ]
+INFO  16:35:02,148 - #4 ,
+INFO  16:35:02,148 - #51 neg
+INFO  16:35:02,148 - #24 [
+INFO  16:35:02,148 - #25 ]
+INFO  16:35:02,148 - #5 ;
+INFO  16:35:02,148 - #22 {
+INFO  16:35:02,148 - #14 void
+INFO  16:35:02,148 - #51 putp
+INFO  16:35:02,148 - #26 (
+INFO  16:35:02,148 - #51 int
+INFO  16:35:02,149 - #51 a
+INFO  16:35:02,149 - #4 ,
+INFO  16:35:02,149 - #51 int
+INFO  16:35:02,149 - #51 idx
+INFO  16:35:02,149 - #27 )
+INFO  16:35:02,150 - #22 {
+INFO  16:35:02,150 - #23 }
+INFO  16:35:02,151 - #14 void
+INFO  16:35:02,153 - #51 putn
+INFO  16:35:02,153 - #26 (
+INFO  16:35:02,153 - #51 int
+INFO  16:35:02,153 - #51 a
+INFO  16:35:02,153 - #4 ,
+INFO  16:35:02,153 - #51 int
+INFO  16:35:02,153 - #51 idx
+INFO  16:35:02,153 - #27 )
+INFO  16:35:02,153 - #22 {
+INFO  16:35:02,154 - #23 }
+INFO  16:35:02,154 - #51 int
+INFO  16:35:02,154 - #51 getp
+INFO  16:35:02,154 - #26 (
+INFO  16:35:02,155 - #51 int
+INFO  16:35:02,155 - #51 idx
+INFO  16:35:02,155 - #27 )
+INFO  16:35:02,155 - #22 {
+INFO  16:35:02,155 - #23 }
+INFO  16:35:02,155 - #51 int
+INFO  16:35:02,156 - #51 getn
+INFO  16:35:02,156 - #26 (
+INFO  16:35:02,156 - #51 int
+INFO  16:35:02,156 - #51 idx
+INFO  16:35:02,156 - #27 )
+INFO  16:35:02,156 - #22 {
+INFO  16:35:02,156 - #23 }
+INFO  16:35:02,156 - #23 }
+INFO  16:35:02,156 - #23 }
+INFO  16:35:02,157 - #51 Table
+INFO  16:35:02,157 - #51 val
+INFO  16:35:02,157 - #5 ;
+INFO  16:35:02,157 - #51 Board
+INFO  16:35:02,157 - #51 board
+INFO  16:35:02,157 - #5 ;
+INFO  16:35:02,157 - #22 {
+INFO  16:35:02,157 - #14 void
+INFO  16:35:02,157 - #51 f
+INFO  16:35:02,157 - #26 (
+INFO  16:35:02,157 - #51 char
+INFO  16:35:02,158 - #51 ch
+INFO  16:35:02,158 - #4 ,
+INFO  16:35:02,158 - #51 int
+INFO  16:35:02,158 - #51 a
+INFO  16:35:02,158 - #4 ,
+INFO  16:35:02,158 - #51 int
+INFO  16:35:02,158 - #51 arg
+INFO  16:35:02,158 - #27 )
+INFO  16:35:02,158 - #51 int
+INFO  16:35:02,158 - #51 x
+INFO  16:35:02,158 - #5 ;
+INFO  16:35:02,158 - #22 {
+INFO  16:35:02,158 - #23 }
+INFO  16:35:02,158 - #23 }
+INFO  16:35:02,162 - Program(
+ p
+  Declarations(
+    Declarations(
+      Declarations(
+        Declarations(
+          Declarations(
+            NonDeclarations(
+            ) [NonDeclarations]
+            ConstDeclarations(
+              ConstDeclaration(
+                Type(
+                 int
+                ) [Type]
+                SingleConstant(
+                 size
+                  NumValue(
+                    NumConst(
+                     10
+                    ) [NumConst]
+                  ) [NumValue]
+                ) [SingleConstant]
+                NonConstants(
+                ) [NonConstants]
+              ) [ConstDeclaration]
+            ) [ConstDeclarations]
+          ) [Declarations]
+          RecordDeclarations(
+            RecordDeclaration(
+             Board
+              MultipleVariables(
+                NonMultipleVariables(
+                ) [NonMultipleVariables]
+                VarDeclaration(
+                  Type(
+                   int
+                  ) [Type]
+                  SingleVariable(
+                    VarName(
+                     rows
+                    ) [VarName]
+                  ) [SingleVariable]
+                  Variables(
+                    NonVariables(
+                    ) [NonVariables]
+                    SingleVariable(
+                      VarName(
+                       columns
+                      ) [VarName]
+                    ) [SingleVariable]
+                  ) [Variables]
+                ) [VarDeclaration]
+              ) [MultipleVariables]
+            ) [RecordDeclaration]
+          ) [RecordDeclarations]
+        ) [Declarations]
+        ClassDeclarations(
+          ClassDeclaration(
+           Table
+            NonExtendsMember(
+            ) [NonExtendsMember]
+            MultipleVariables(
+              NonMultipleVariables(
+              ) [NonMultipleVariables]
+              VarDeclaration(
+                Type(
+                 int
+                ) [Type]
+                SingleArray(
+                  ArrayName(
+                   pos
+                  ) [ArrayName]
+                ) [SingleArray]
+                Variables(
+                  NonVariables(
+                  ) [NonVariables]
+                  SingleArray(
+                    ArrayName(
+                     neg
+                    ) [ArrayName]
+                  ) [SingleArray]
+                ) [Variables]
+              ) [VarDeclaration]
+            ) [MultipleVariables]
+            NonConstructorClassBody(
+              Methods(
+                VoidMethodDecl(
+                 putp
+                  FormParams(
+                    FormalParamDecls(
+                      SingleFormalParamDecl(
+                        MethodArgVariable(
+                          Type(
+                           int
+                          ) [Type]
+                         a
+                        ) [MethodArgVariable]
+                      ) [SingleFormalParamDecl]
+                      MethodArgVariable(
+                        Type(
+                         int
+                        ) [Type]
+                       idx
+                      ) [MethodArgVariable]
+                    ) [FormalParamDecls]
+                  ) [FormParams]
+                  FunctionEnd(
+                    NonMultipleVariables(
+                    ) [NonMultipleVariables]
+                    MultipleStatements(
+                      NonStatements(
+                      ) [NonStatements]
+                    ) [MultipleStatements]
+                  ) [FunctionEnd]
+                ) [VoidMethodDecl]
+                MethodList(
+                  MethodList(
+                    MethodList(
+                      NonMethodList(
+                      ) [NonMethodList]
+                      VoidMethodDecl(
+                       putn
+                        FormParams(
+                          FormalParamDecls(
+                            SingleFormalParamDecl(
+                              MethodArgVariable(
+                                Type(
+                                 int
+                                ) [Type]
+                               a
+                              ) [MethodArgVariable]
+                            ) [SingleFormalParamDecl]
+                            MethodArgVariable(
+                              Type(
+                               int
+                              ) [Type]
+                             idx
+                            ) [MethodArgVariable]
+                          ) [FormalParamDecls]
+                        ) [FormParams]
+                        FunctionEnd(
+                          NonMultipleVariables(
+                          ) [NonMultipleVariables]
+                          MultipleStatements(
+                            NonStatements(
+                            ) [NonStatements]
+                          ) [MultipleStatements]
+                        ) [FunctionEnd]
+                      ) [VoidMethodDecl]
+                    ) [MethodList]
+                    TypeMethodDecl(
+                      Type(
+                       int
+                      ) [Type]
+                     getp
+                      FormParams(
+                        SingleFormalParamDecl(
+                          MethodArgVariable(
+                            Type(
+                             int
+                            ) [Type]
+                           idx
+                          ) [MethodArgVariable]
+                        ) [SingleFormalParamDecl]
+                      ) [FormParams]
+                      FunctionEnd(
+                        NonMultipleVariables(
+                        ) [NonMultipleVariables]
+                        MultipleStatements(
+                          NonStatements(
+                          ) [NonStatements]
+                        ) [MultipleStatements]
+                      ) [FunctionEnd]
+                    ) [TypeMethodDecl]
+                  ) [MethodList]
+                  TypeMethodDecl(
+                    Type(
+                     int
+                    ) [Type]
+                   getn
+                    FormParams(
+                      SingleFormalParamDecl(
+                        MethodArgVariable(
+                          Type(
+                           int
+                          ) [Type]
+                         idx
+                        ) [MethodArgVariable]
+                      ) [SingleFormalParamDecl]
+                    ) [FormParams]
+                    FunctionEnd(
+                      NonMultipleVariables(
+                      ) [NonMultipleVariables]
+                      MultipleStatements(
+                        NonStatements(
+                        ) [NonStatements]
+                      ) [MultipleStatements]
+                    ) [FunctionEnd]
+                  ) [TypeMethodDecl]
+                ) [MethodList]
+              ) [Methods]
+            ) [NonConstructorClassBody]
+          ) [ClassDeclaration]
+        ) [ClassDeclarations]
+      ) [Declarations]
+      VarDeclarations(
+        VarDeclaration(
+          Type(
+           Table
+          ) [Type]
+          SingleVariable(
+            VarName(
+             val
+            ) [VarName]
+          ) [SingleVariable]
+          NonVariables(
+          ) [NonVariables]
+        ) [VarDeclaration]
+      ) [VarDeclarations]
+    ) [Declarations]
+    VarDeclarations(
+      VarDeclaration(
+        Type(
+         Board
+        ) [Type]
+        SingleVariable(
+          VarName(
+           board
+          ) [VarName]
+        ) [SingleVariable]
+        NonVariables(
+        ) [NonVariables]
+      ) [VarDeclaration]
+    ) [VarDeclarations]
+  ) [Declarations]
+  MethodList(
+    NonMethodList(
+    ) [NonMethodList]
+    VoidMethodDecl(
+     f
+      FormParams(
+        FormalParamDecls(
+          FormalParamDecls(
+            SingleFormalParamDecl(
+              MethodArgVariable(
+                Type(
+                 char
+                ) [Type]
+               ch
+              ) [MethodArgVariable]
+            ) [SingleFormalParamDecl]
+            MethodArgVariable(
+              Type(
+               int
+              ) [Type]
+             a
+            ) [MethodArgVariable]
+          ) [FormalParamDecls]
+          MethodArgVariable(
+            Type(
+             int
+            ) [Type]
+           arg
+          ) [MethodArgVariable]
+        ) [FormalParamDecls]
+      ) [FormParams]
+      FunctionEnd(
+        MultipleVariables(
+          NonMultipleVariables(
+          ) [NonMultipleVariables]
+          VarDeclaration(
+            Type(
+             int
+            ) [Type]
+            SingleVariable(
+              VarName(
+               x
+              ) [VarName]
+            ) [SingleVariable]
+            NonVariables(
+            ) [NonVariables]
+          ) [VarDeclaration]
+        ) [MultipleVariables]
+        MultipleStatements(
+          NonStatements(
+          ) [NonStatements]
+        ) [MultipleStatements]
+      ) [FunctionEnd]
+    ) [VoidMethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  16:35:02,163 - ===================================
+INFO  16:35:02,166 -  Print count calls = 0
+INFO  16:35:02,166 -  Deklarisanih promenljivih ima = 0
