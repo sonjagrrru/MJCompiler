@@ -1,0 +1,183 @@
+INFO  15:36:46,121 - Compiling source file: C:\Users\sonja\OneDrive\Desktop\4. godina\Programski prevodioci 1\Sve za projekat\Sintaksna analiza\Izvorni kod\MJCompiler\test\test_moj.mj
+INFO  15:36:46,214 - #2 program
+INFO  15:36:46,214 - #47 testmoj
+INFO  15:36:46,215 - #3 const
+INFO  15:36:46,217 - #47 int
+INFO  15:36:46,217 - #47 nula
+INFO  15:36:46,218 - #25 =
+INFO  15:36:46,218 - #45 0
+INFO  15:36:46,218 - #5 ;
+INFO  15:36:46,221 - #3 const
+INFO  15:36:46,222 - #47 int
+INFO  15:36:46,222 - #47 jedan
+INFO  15:36:46,222 - #25 =
+INFO  15:36:46,222 - #45 1
+INFO  15:36:46,222 - #5 ;
+INFO  15:36:46,222 - #3 const
+INFO  15:36:46,222 - #47 int
+INFO  15:36:46,223 - #47 pet
+INFO  15:36:46,223 - #25 =
+INFO  15:36:46,223 - #45 5
+INFO  15:36:46,254 - #5 ;
+INFO  15:36:46,255 - #19 {
+INFO  15:36:46,255 - #12 void
+INFO  15:36:46,256 - #47 main
+INFO  15:36:46,256 - #23 (
+INFO  15:36:46,256 - #24 )
+INFO  15:36:46,257 - #19 {
+INFO  15:36:46,258 - #15 print
+INFO  15:36:46,259 - #23 (
+INFO  15:36:46,260 - #45 5
+INFO  15:36:46,260 - #24 )
+INFO  15:36:46,262 - #5 ;
+INFO  15:36:46,263 - #15 print
+INFO  15:36:46,263 - #23 (
+INFO  15:36:46,263 - #45 1
+INFO  15:36:46,263 - #24 )
+INFO  15:36:46,264 - #5 ;
+INFO  15:36:46,264 - #20 }
+INFO  15:36:46,264 - #20 }
+INFO  15:36:46,268 - Program(
+  ProgName(
+   testmoj
+  ) [ProgName]
+  Declarations(
+    Declarations(
+      Declarations(
+        NonDeclarations(
+        ) [NonDeclarations]
+        ConstDeclarations(
+          ConstDeclaration(
+            Type(
+             int
+            ) [Type]
+            ConstDeclSingle(
+             nula
+              NumConstant(
+                NumConst(
+                 0
+                ) [NumConst]
+              ) [NumConstant]
+            ) [ConstDeclSingle]
+            NonConstants(
+            ) [NonConstants]
+          ) [ConstDeclaration]
+        ) [ConstDeclarations]
+      ) [Declarations]
+      ConstDeclarations(
+        ConstDeclaration(
+          Type(
+           int
+          ) [Type]
+          ConstDeclSingle(
+           jedan
+            NumConstant(
+              NumConst(
+               1
+              ) [NumConst]
+            ) [NumConstant]
+          ) [ConstDeclSingle]
+          NonConstants(
+          ) [NonConstants]
+        ) [ConstDeclaration]
+      ) [ConstDeclarations]
+    ) [Declarations]
+    ConstDeclarations(
+      ConstDeclaration(
+        Type(
+         int
+        ) [Type]
+        ConstDeclSingle(
+         pet
+          NumConstant(
+            NumConst(
+             5
+            ) [NumConst]
+          ) [NumConstant]
+        ) [ConstDeclSingle]
+        NonConstants(
+        ) [NonConstants]
+      ) [ConstDeclaration]
+    ) [ConstDeclarations]
+  ) [Declarations]
+  MethodList(
+    NonMethodList(
+    ) [NonMethodList]
+    MethodDecl(
+      VoidMethodName(
+       main
+      ) [VoidMethodName]
+      NoneArgs(
+      ) [NoneArgs]
+      FunctionEnd(
+        NonMultipleVariables(
+        ) [NonMultipleVariables]
+        MultipleStatements(
+          ListStatements(
+            ListStatements(
+              NonStatements(
+              ) [NonStatements]
+              NonLabeledSingleStatement(
+                MatchedStatement(
+                  NoNumPrintStatement(
+                    SingleExpression(
+                      SingleExpr(
+                        SinglePositiveTerm(
+                          Term(
+                            SingleFactor(
+                              NumFactor(
+                                NumConst(
+                                 5
+                                ) [NumConst]
+                              ) [NumFactor]
+                            ) [SingleFactor]
+                          ) [Term]
+                        ) [SinglePositiveTerm]
+                      ) [SingleExpr]
+                    ) [SingleExpression]
+                  ) [NoNumPrintStatement]
+                ) [MatchedStatement]
+              ) [NonLabeledSingleStatement]
+            ) [ListStatements]
+            NonLabeledSingleStatement(
+              MatchedStatement(
+                NoNumPrintStatement(
+                  SingleExpression(
+                    SingleExpr(
+                      SinglePositiveTerm(
+                        Term(
+                          SingleFactor(
+                            NumFactor(
+                              NumConst(
+                               1
+                              ) [NumConst]
+                            ) [NumFactor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SinglePositiveTerm]
+                    ) [SingleExpr]
+                  ) [SingleExpression]
+                ) [NoNumPrintStatement]
+              ) [MatchedStatement]
+            ) [NonLabeledSingleStatement]
+          ) [ListStatements]
+        ) [MultipleStatements]
+      ) [FunctionEnd]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  15:36:46,270 - ===================================
+INFO  15:36:46,283 - Definisana konstanta nula na liniji 3
+INFO  15:36:46,283 - Definisana konstanta jedan na liniji 4
+INFO  15:36:46,283 - Definisana konstanta pet na liniji 5
+INFO  15:36:46,284 - Obradjuje se funkcija main na liniji 14
+INFO  15:36:46,284 -  Print count calls = 2
+INFO  15:36:46,284 -  Deklarisanih promenljivih ima = 0
+INFO  15:36:46,284 -  Globalnih promenljivih ima = 0
+INFO  15:36:46,284 -  Lokalnih promenljivih ima = 0
+INFO  15:36:46,284 - ===================================
+INFO  15:36:46,285 - Semanticka analiza uspesno zavrsena!
+INFO  15:36:46,290 - main
+INFO  15:36:46,290 - 0
+INFO  15:36:46,290 - 0
+INFO  15:36:46,297 - Parsiranje uspesno zavrseno!

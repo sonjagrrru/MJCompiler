@@ -1,0 +1,102 @@
+INFO  15:00:36,682 - Compiling source file: C:\Users\sonja\OneDrive\Desktop\4. godina\Programski prevodioci 1\Sve za projekat\Sintaksna analiza\Izvorni kod\MJCompiler\test\test_moj.mj
+INFO  15:00:36,747 - #2 program
+INFO  15:00:36,747 - #47 testmoj
+INFO  15:00:36,747 - #19 {
+INFO  15:00:36,748 - #12 void
+INFO  15:00:36,749 - #47 main
+INFO  15:00:36,749 - #23 (
+INFO  15:00:36,749 - #24 )
+INFO  15:00:36,750 - #19 {
+INFO  15:00:36,750 - #15 print
+INFO  15:00:36,751 - #23 (
+INFO  15:00:36,751 - #45 5
+INFO  15:00:36,751 - #24 )
+INFO  15:00:36,753 - #5 ;
+INFO  15:00:36,753 - #15 print
+INFO  15:00:36,754 - #23 (
+INFO  15:00:36,754 - #45 1
+INFO  15:00:36,754 - #24 )
+INFO  15:00:36,754 - #5 ;
+INFO  15:00:36,754 - #20 }
+INFO  15:00:36,755 - #20 }
+INFO  15:00:36,758 - Program(
+  ProgName(
+   testmoj
+  ) [ProgName]
+  NonDeclarations(
+  ) [NonDeclarations]
+  MethodList(
+    NonMethodList(
+    ) [NonMethodList]
+    MethodDecl(
+      VoidMethodName(
+       main
+      ) [VoidMethodName]
+      NoneArgs(
+      ) [NoneArgs]
+      FunctionEnd(
+        NonMultipleVariables(
+        ) [NonMultipleVariables]
+        MultipleStatements(
+          ListStatements(
+            ListStatements(
+              NonStatements(
+              ) [NonStatements]
+              NonLabeledSingleStatement(
+                MatchedStatement(
+                  NoNumPrintStatement(
+                    SingleExpression(
+                      SingleExpr(
+                        SinglePositiveTerm(
+                          Term(
+                            SingleFactor(
+                              NumFactor(
+                                NumConst(
+                                 5
+                                ) [NumConst]
+                              ) [NumFactor]
+                            ) [SingleFactor]
+                          ) [Term]
+                        ) [SinglePositiveTerm]
+                      ) [SingleExpr]
+                    ) [SingleExpression]
+                  ) [NoNumPrintStatement]
+                ) [MatchedStatement]
+              ) [NonLabeledSingleStatement]
+            ) [ListStatements]
+            NonLabeledSingleStatement(
+              MatchedStatement(
+                NoNumPrintStatement(
+                  SingleExpression(
+                    SingleExpr(
+                      SinglePositiveTerm(
+                        Term(
+                          SingleFactor(
+                            NumFactor(
+                              NumConst(
+                               1
+                              ) [NumConst]
+                            ) [NumFactor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SinglePositiveTerm]
+                    ) [SingleExpr]
+                  ) [SingleExpression]
+                ) [NoNumPrintStatement]
+              ) [MatchedStatement]
+            ) [NonLabeledSingleStatement]
+          ) [ListStatements]
+        ) [MultipleStatements]
+      ) [FunctionEnd]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  15:00:36,758 - ===================================
+INFO  15:00:36,765 - Obradjuje se funkcija main na liniji 14
+INFO  15:00:36,766 -  Print count calls = 2
+INFO  15:00:36,766 -  Deklarisanih promenljivih ima = 0
+INFO  15:00:36,766 -  Globalnih promenljivih ima = 0
+INFO  15:00:36,766 -  Lokalnih promenljivih ima = 0
+INFO  15:00:36,766 - ===================================
+INFO  15:00:36,767 - Semanticka analiza uspesno zavrsena!
+INFO  15:00:36,774 - Parsiranje uspesno zavrseno!

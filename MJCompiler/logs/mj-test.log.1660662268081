@@ -1,0 +1,210 @@
+INFO  17:01:19,150 - Compiling source file: C:\Users\sonja\OneDrive\Desktop\4. godina\Programski prevodioci 1\Sve za projekat\Sintaksna analiza\Izvorni kod\MJCompiler\test\test_moj.mj
+INFO  17:01:19,228 - #2 program
+INFO  17:01:19,228 - #47 testmoj
+INFO  17:01:19,228 - #3 const
+INFO  17:01:19,230 - #47 int
+INFO  17:01:19,230 - #47 nula
+INFO  17:01:19,231 - #25 =
+INFO  17:01:19,231 - #45 0
+INFO  17:01:19,231 - #5 ;
+INFO  17:01:19,233 - #3 const
+INFO  17:01:19,234 - #47 int
+INFO  17:01:19,234 - #47 jedan
+INFO  17:01:19,234 - #25 =
+INFO  17:01:19,234 - #45 1
+INFO  17:01:19,234 - #5 ;
+INFO  17:01:19,234 - #3 const
+INFO  17:01:19,234 - #47 int
+INFO  17:01:19,235 - #47 pet
+INFO  17:01:19,235 - #25 =
+INFO  17:01:19,235 - #45 5
+INFO  17:01:19,235 - #5 ;
+INFO  17:01:19,235 - #19 {
+INFO  17:01:19,235 - #12 void
+INFO  17:01:19,236 - #47 sum
+INFO  17:01:19,237 - #23 (
+INFO  17:01:19,237 - #24 )
+INFO  17:01:19,238 - #19 {
+INFO  17:01:19,239 - #20 }
+INFO  17:01:19,240 - #12 void
+INFO  17:01:19,242 - #47 main
+INFO  17:01:19,242 - #23 (
+INFO  17:01:19,242 - #24 )
+INFO  17:01:19,242 - #19 {
+INFO  17:01:19,242 - #15 print
+INFO  17:01:19,242 - #23 (
+INFO  17:01:19,242 - #44 a
+INFO  17:01:19,242 - #24 )
+INFO  17:01:19,245 - #5 ;
+INFO  17:01:19,245 - #15 print
+INFO  17:01:19,245 - #23 (
+INFO  17:01:19,245 - #45 1
+INFO  17:01:19,245 - #24 )
+INFO  17:01:19,246 - #5 ;
+INFO  17:01:19,246 - #20 }
+INFO  17:01:19,246 - #20 }
+INFO  17:01:19,247 - Program(
+  ProgName(
+   testmoj
+  ) [ProgName]
+  Declarations(
+    Declarations(
+      Declarations(
+        NonDeclarations(
+        ) [NonDeclarations]
+        ConstDeclarations(
+          ConstDeclaration(
+            Type(
+             int
+            ) [Type]
+            ConstDeclSingle(
+             nula
+              NumConstant(
+                NumConst(
+                 0
+                ) [NumConst]
+              ) [NumConstant]
+            ) [ConstDeclSingle]
+            NonConstants(
+            ) [NonConstants]
+          ) [ConstDeclaration]
+        ) [ConstDeclarations]
+      ) [Declarations]
+      ConstDeclarations(
+        ConstDeclaration(
+          Type(
+           int
+          ) [Type]
+          ConstDeclSingle(
+           jedan
+            NumConstant(
+              NumConst(
+               1
+              ) [NumConst]
+            ) [NumConstant]
+          ) [ConstDeclSingle]
+          NonConstants(
+          ) [NonConstants]
+        ) [ConstDeclaration]
+      ) [ConstDeclarations]
+    ) [Declarations]
+    ConstDeclarations(
+      ConstDeclaration(
+        Type(
+         int
+        ) [Type]
+        ConstDeclSingle(
+         pet
+          NumConstant(
+            NumConst(
+             5
+            ) [NumConst]
+          ) [NumConstant]
+        ) [ConstDeclSingle]
+        NonConstants(
+        ) [NonConstants]
+      ) [ConstDeclaration]
+    ) [ConstDeclarations]
+  ) [Declarations]
+  MethodList(
+    MethodList(
+      NonMethodList(
+      ) [NonMethodList]
+      MethodDecl(
+        VoidMethodName(
+         sum
+        ) [VoidMethodName]
+        NoneArgs(
+        ) [NoneArgs]
+        FunctionEnd(
+          NonMultipleVariables(
+          ) [NonMultipleVariables]
+          MultipleStatements(
+            NonStatements(
+            ) [NonStatements]
+          ) [MultipleStatements]
+        ) [FunctionEnd]
+      ) [MethodDecl]
+    ) [MethodList]
+    MethodDecl(
+      VoidMethodName(
+       main
+      ) [VoidMethodName]
+      NoneArgs(
+      ) [NoneArgs]
+      FunctionEnd(
+        NonMultipleVariables(
+        ) [NonMultipleVariables]
+        MultipleStatements(
+          ListStatements(
+            ListStatements(
+              NonStatements(
+              ) [NonStatements]
+              NonLabeledSingleStatement(
+                MatchedStatement(
+                  NoNumPrintStatement(
+                    SingleExpression(
+                      SingleExpr(
+                        SinglePositiveTerm(
+                          Term(
+                            SingleFactor(
+                              CharFactor(
+                                CharConst(
+                                 a
+                                ) [CharConst]
+                              ) [CharFactor]
+                            ) [SingleFactor]
+                          ) [Term]
+                        ) [SinglePositiveTerm]
+                      ) [SingleExpr]
+                    ) [SingleExpression]
+                  ) [NoNumPrintStatement]
+                ) [MatchedStatement]
+              ) [NonLabeledSingleStatement]
+            ) [ListStatements]
+            NonLabeledSingleStatement(
+              MatchedStatement(
+                NoNumPrintStatement(
+                  SingleExpression(
+                    SingleExpr(
+                      SinglePositiveTerm(
+                        Term(
+                          SingleFactor(
+                            NumFactor(
+                              NumConst(
+                               1
+                              ) [NumConst]
+                            ) [NumFactor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SinglePositiveTerm]
+                    ) [SingleExpr]
+                  ) [SingleExpression]
+                ) [NoNumPrintStatement]
+              ) [MatchedStatement]
+            ) [NonLabeledSingleStatement]
+          ) [ListStatements]
+        ) [MultipleStatements]
+      ) [FunctionEnd]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  17:01:19,248 - ===================================
+INFO  17:01:19,262 - Definisana konstanta nula na liniji 3
+INFO  17:01:19,263 - Definisana konstanta jedan na liniji 4
+INFO  17:01:19,263 - Definisana konstanta pet na liniji 5
+INFO  17:01:19,263 - Obradjuje se funkcija sum na liniji 8
+INFO  17:01:19,263 - Obradjuje se funkcija main na liniji 14
+INFO  17:01:19,263 -  Print count calls = 2
+INFO  17:01:19,263 -  Deklarisanih promenljivih ima = 0
+INFO  17:01:19,263 -  Globalnih promenljivih ima = 0
+INFO  17:01:19,263 -  Lokalnih promenljivih ima = 0
+INFO  17:01:19,263 - ===================================
+INFO  17:01:19,264 - Semanticka analiza uspesno zavrsena!
+INFO  17:01:19,269 - sum
+INFO  17:01:19,270 - 0
+INFO  17:01:19,270 - 0
+INFO  17:01:19,270 - main
+INFO  17:01:19,270 - 0
+INFO  17:01:19,270 - 0
+INFO  17:01:19,276 - Parsiranje uspesno zavrseno!
